@@ -1,0 +1,16 @@
+# Abre o public/index.html quando acessar /skateSpot/
+DirectoryIndex public/index.html
+
+Options -Indexes
+RewriteEngine On
+
+# Não reescreve chamadas para a API
+RewriteRule ^api/ - [L]
+
+# Se o arquivo/pasta existir, serve direto (css/js/img)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule - - [L]
+
+# Tudo o resto aponta para /public/<rota>
+RewriteRule ^(.*)$ public/$1 [L]
