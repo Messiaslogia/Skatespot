@@ -1,4 +1,4 @@
-const DEFAULT_ZOOM = 17;
+const DEFAULT_ZOOM = 14;
 let map, userMarker, radiusCircle, spotsLayer;
 
 const categoryIcons = (() => {
@@ -17,6 +17,8 @@ function renderGallery(images = []) {
     if (!images || images.length === 0) return '';
     const imgs = images.map(url =>
         `<img src="${escapeAttr(url)}" alt="spot image" loading="lazy"/>`
+
+
     ).join('');
     return `<div class="popup-gallery">${imgs}</div>`;
 }
@@ -43,6 +45,7 @@ function normalizeCategory(cat) {
 
 function initMap() {
     map = L.map('map', { zoomControl: true }).setView([-23.55, -46.63], DEFAULT_ZOOM); // SP como fallback
+    map.zoomControl.setPosition('bottomleft');
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
         {

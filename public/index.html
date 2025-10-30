@@ -10,20 +10,26 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="./styles.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
 </head>
 
 <body>
-    <header class="topbar">
-        <h1>Skate Spots perto de você</h1>
-        <div class="controls">
-            <label>Raio (km):
-                <input id="radiusKm" type="number" value="10" min="0.5" max="20" step="0.5" />
-            </label>
-            <button id="useLocationBtn">Usar minha localização</button>
-            <button id="reloadBtn">Recarregar spots</button>
+    <div class="floating-menu" >
+        <div class="field is-grouped">
+            <p class="control is-expanded">
+                <input class="input" type="text" placeholder="Onde você vai andar?">
+            </p>
+            <p class="control">
+                <button class="button ">
+                    <img src="./assets/icons/icons8-skateboard-wheel-25.png" alt="" srcset="">
+                </button>
+            </p>
         </div>
-        <small class="hint">Dica: se negar a localização, clique no mapa para escolher um ponto manualmente.</small>
-    </header>
+    </div>
+        
+
+    
 
     <div id="map"></div>
 
